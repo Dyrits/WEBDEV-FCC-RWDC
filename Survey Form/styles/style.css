@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap'); 
+
+body {
+  background-color: rgb(50, 170, 220);
+  font-family: 'Permanent Marker', cursive;
+  color: #FFF;
+}
+
+header {
+  text-align: center;
+  /* border: 1px solid #000; */
+  width: 50%;
+  min-width: 400px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 25% 25% 0 0;
+  background-color: #9e6027;
+  color: #d69956;
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.7), 0px 4px 6px rgba(0, 0, 0, 0.5), 0px 8px 12px rgba(0, 0, 40, 0.3);
+}
+
+header h1 .fa-hamburger {
+  font-size: 2em;
+}
+
+
+#survey-form  {
+  text-align: center;
+  line-height: 30px;
+  height: 80%;
+  overflow: auto;
+}
+
+#survey-form #about-you {
+  background-color: #89af46;
+  width: 50%;
+  min-width: 400px;
+  margin: 0 auto;
+  
+}
+
+#survey-form #about-you h2 {
+  background-color: #ec942a;
+  width: 100%;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+#survey-form #burger #options {
+background-color: #762e18;
+  width: 50%;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 0 20px 15px 20px;
+  border-radius: 10%;
+}
+
+#survey-form #burger h2 {
+  background-color: #e3292a;
+  width: 50%;
+  min-width: 400px;
+  padding: 15px 0;
+  margin: 0 auto;
+  border-radius: 0 0 10% 10%;
+}
+
+#survey-form #submit-form {
+  background-color: #9e6027;
+  width: 50%;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 0% 0% 10% 10%;
+}
+
+#survey-form #submit-form #submit {
+  width: 100%;
+  height: 30px;
+  color: #d69956;
+  border: none;
+  font-size: 2em;
+  padding-bottom: 50px;
+  background-color: #9e6027;
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.7), 0px 4px 6px rgba(0, 0, 0, 0.5), 0px 8px 12px rgba(0, 0, 40, 0.3);
+  cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
+}
+
+hr {
+  width: 75%;
+  border-top: 1px solid rgba(223, 160, 55, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+} 
+
+
+footer {
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: #DDD;
+}
+
+footer p a {
+  color: #d69956;
+  text-decoration: none;
+}
+
+footer p a:hover{
+  color: #9e6027;
+  text-decoration: underline;
+}

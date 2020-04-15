@@ -4,36 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>freeCodeCamp: Survey Form</title>
+  <title>freeCodeCamp: Survey Form (Dylan's Burger)</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
   <header>
-    <h1 id="title"></h1>
-    <p id="description">
+    <h1 id="title">Dylan's <i class="fas fa-hamburger"></i> Burger</h1>
+    <p id="description">Tell us what you think of our burgers! Win a free one!
     </p>
   </header>
   <main>
     <article>
-      <form action="" id="form">
-        <label for="name">Full name</label>
-        <input type="text" id="name" placeholder="John Doe">
-        <label for="email">M@il</label>
-        <input type="email" id="email" placeholder="adresse@mail.com">
-        <label for="number">Phone number</label>
-        <input type="number" id="number" placeholder="+33(0)123456789">
-        <input type="radio" name="gender" id=""><input type="radio" name="gender" id="">3
-        <input type="checkbox" name="" id="" value="">
-        <input type="checkbox" name="" id="" value="">
-        <input type="checkbox" name="" id="" value="">
-        <input type="checkbox" name="" id="" value="">
-        <input type="checkbox" name="" id="" value="">
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <input type="submit" value="">
+      <form action="" id="survey-form">
+        <section id="about-you">
+          <h2>About you:</h2>
+          <label for="name" id="name-label">Full name:
+            <input type="text" id="name" placeholder="John Doe" required></label>
+          <hr>
+          <label for="email" id="email-label">Contact:
+            <input type="email" id="email" placeholder="adresse@mail.com" required></label>
+          <hr>
+          <div>Gender:
+            <label><input type="radio" name="gender" value="male"><i class="fas fa-mars"></i></label>
+            <label><input type="radio" name="gender" value="female"><i class="fas fa-venus"></i></label>
+            <label><input type="radio" name="gender" value="other"><i class="fas fa-transgender"></i><strong>++</strong></label>
+          </div>
+        </section>
+        <section id="burger">
+          <h2>About the burger:</h2>
+          <div id="options">
+          <select name="burger" id="dropdown">
+            <option selected disabled>-Which one did you have?-</option>
+            <option value="classic">Classic Burger</option>
+            <option value="cheese">Cheese Burger</option>
+            <option value="capsigoat">CapsiGoat Burger</option>
+            <option value="blue-apple">Blue Apple Burger</option>
+            <option value="meatless">Meatless Burger</option>
+          </select>
+          <hr>
+          <div>Did you pick any extra?
+            <label><input type="checkbox" name="extra" value="1">Double Cheese</label>
+            <label><input type="checkbox" name="extra" value="2">Hot Pepper</label>
+            <label><input type="checkbox" name="extra" value="3">Fruity Mix</label>
+            <label><input type="checkbox" name="extra" value="4">Cheesy O' Fries</label>
+            <label><input type="checkbox" name="extra" value="5">Onion's Storm</label>
+          </div>
+          <hr>
+          <label for="number" id="number-label">Rate your overall experience on 10:
+            <input type="number" id="number" placeholder="1" min="1" max="10" value="10"></label>
+          <hr>
+          <label for="suggestion">What could we improve?<br><textarea name="" id="suggestion" cols="40"
+              rows="2">Nothing, it was perfect...</textarea></label>
+          </div>
+        </section>
+        <section id="submit-form">
+          <input type="submit" value="Submit" id="submit">
+        <section>
       </form>
     </article>
   </main>
   <footer>
+    <p>This page has been made by Dylan J. Gerrits <a href="https://github.com/dyrits/" target="_blank"><i class="fab fa-github"></i></a> as a project for <a href="https://www.freecodecamp.org/" target="_blank">freecodecamp.org.</a></p>
   </footer>
 </body>
 
