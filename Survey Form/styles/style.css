@@ -41,7 +41,7 @@ header h1 .fa-hamburger {
 }
 
 #survey-form #about-you h2 {
-  background-color: #ec942a;
+  background-color: #e3292a;
   width: 100%;
   min-width: 400px;
   margin: 0 auto;
@@ -58,7 +58,7 @@ background-color: #762e18;
 }
 
 #survey-form #burger h2 {
-  background-color: #e3292a;
+  background-color: #ec942a;
   width: 50%;
   min-width: 400px;
   padding: 15px 0;
