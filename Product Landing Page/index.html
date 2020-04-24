@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freeCodeCamp: Product Landing Page (?)</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header id="header">
+    <nav id="nav-bar" class="flex">
+      <img src="styles/logo.png" alt="" id="header-img">
+      <ul class="flex">
+        <li><a class="nav-link"href="#introduction">Who are we?</a></li>
+        <li><a class="nav-link" href="#guarantees">Guarantees</a></li>
+        <li><a class="nav-link" href="#pricing">Courses Selection</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article id="introduction">
+      <section>
+        <h1>Selling stolen free courses</h1>
+        <p>In our platform, you'll find a lot of courses, stolen from other websites. Feel free to donate to <a
+            href="https://www.freecodecamp.org/donate" target="_blank">freeCodeCamp</a> to support the website. If they
+          exist, we can exist!</p>
+      </section>
+      <section>
+        <h2>What can you find on our website?</h2>
+        <h3>Exceptionnal free offer:<br>Introduction to HTML and CSS</h3>
+        <iframe id="video" src="https://www.youtube.com/embed/kLO4X_3VYdg" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+    </article>
+
+    <article id="guarantees">
+      <section>
+        <h1>Our guarantees</h1>
+      </section>
+      <section id="guarantees-details" class="grid">
+        <div class="logo"><i class="fas fa-shipping-fast"></i></div>
+        <div class="content">
+          <h3>Shipping fast! Everything is online. It will instantly appears on your screen!</h3>
+        </div>
+        <div class="logo"><i class="far fa-handshake"></i></div>
+        <div class="content">
+          <h3>Quality! We are only stealing premium quality courses! You'll only have the best.</h3>
+        </div>
+        <div class="logo"><i class="fas fa-user-secret"></i></div>
+        <div class="content">
+          <h3>Incognito! We keep our data private. You don't need to worry about us selling them. We are not thiefs
+            after all.</h3>
+        </div>
+      </section>
+    </article>
+    <article id="pricing">
+      <section>
+        <h1>Courses selection</h1>
+      </section>
+      <section class="flex" id="courses">
+        <section class="product flex">
+          <div class="level">
+            <h2>Responsive Web Design Certification (300H)</h2>
+          </div>
+          <h3>$3500</h3>
+          <button class="button">Select this course</button>
+          </div>
+        </section>
+        <section class="product flex">
+          <div class="level">
+            <h2>JavaScript Algorithms and Data Structures Certification (300 hours)</h2>
+          </div>
+          <h3><span class="off">$3500</span><br>$1500</h3>
+          <button class="button">Select this course</button>
+        </section>
+        <section class="product flex">
+          <div class="level">
+            <h2>Data Visualization Certification (300H)</h2>
+          </div>
+          <h3><span class="off">$3500</span><br>$1500</h3>
+          <button class="button">Select this course</button>
+          </div>
+        </section>
+    </article>
+    <article id="newsletter">
+      <section>
+        <h1>Newsletter</h1>
+        <p>Subscribe to our newletter to receive our best offers!</p>
+      </section>
+      <section id="subscribe">
+        <form action="https://www.freecodecamp.com/email-submit" id="form">
+          <input type="email" id="email" name="email" placeholder="Enter your e-mail address...">
+          <input type="submit" value="Subscribe" id="submit">
+        </form>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <p>This page has been made by Dylan J. Gerrits <a href="https://github.com/dyrits/" target="_blank"><i
+          class="fab fa-github"></i></a> as a project for <a href="https://www.freecodecamp.org/"
+        target="_blank">freecodecamp.org.</a></p>
+  </footer>
+  <script src="https://kit.fontawesome.com/7b3b0349cd.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
