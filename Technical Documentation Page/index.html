@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freeCodeCamp: Technical Documentation Page (CSS Specificity)</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<nav id="navbar">
+  <header><h1><i class="fab fa-css3"></i><br>CSS Specificity</h1></header>
+  <ul>
+    <li><a href="#Selector_Types" class="nav-link">Selector Types</a></li>
+    <li><a href="#The_!important_exception" class="nav-link">The <code>!important</code> exception</a></li>
+    <li><a href="#The_:not()_exception" class="nav-link">The <code>:not()</code> exception</a></li>
+    <li><a href="#Form-based_specificity" class="nav-link">Form-based specificity</a></li>
+    <li><a href="#Tree_proximity_ignorance" class="nav-link">Tree proximity ignorance</a></li>
+    <li><a href="#Directly_targeted_elements_vs._inherited_styles" class="nav-link">Directly targeted elements vs. inherited styles</a></li>
+  </ul>
+</nav>
+  <main id="main-doc">
+    <header>
+      <p>Specificity is the means by which browsers decide which CSS property values are the most relevant to an element
+        and,
+        therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of
+        CSS
+        selectors.</p>
+      <p><strong>How is specificity calculated?</strong></p>
+      <p>Specificity is a weight that is applied to a given CSS declaration, determined by the number of each selector
+        type in
+        the matching selector. When multiple declarations have equal specificity, the last declaration found in the CSS
+        is
+        applied to the element. Specificity only applies when the same element is targeted by multiple declarations. As
+        per CSS
+        rules, directly targeted elements will always take precedence over rules which an element inherits from its
+        ancestor.</p>
+      <p><em>Note: Proximity of elements in the document tree has no effect on the specificity.</em></p>
+    </header>
+    <section  id="Selector_Types" class="main-section">
+      <header>Selector Types</header>
+      <p>The following list of selector types increases by specificity:</p>
+      <ol>
+        <li>Type selectors (e.g., <code>h1</code>) and pseudo-elements (e.g., <code>::before</code>).</li>
+        <li>Class selectors (e.g., <code>.example</code>), attributes selectors (e.g., <code>[type="radio"]</code>) and
+          pseudo-classes (e.g., <code>:hover</code>).</li>
+        <li>ID selectors (e.g., <code>#example</code>).</li>
+      </ol>
+      <p>Universal selector (<code>*</code>), combinators (<code>+</code>, <code>></code>, <code>~</code>,
+        <code>''</code>, <code>||</code>) and negation pseudo-class (<code>:not()</code>) have no effect on specificity.
+        (The selectors declared inside <code>:not()</code> do, however.)</p>
+
+      <p>Inline styles added to an element (e.g., <code>style="font-weight: bold;"</code>) always overwrite any styles
+        in external
+        stylesheets, and thus can be thought of as having the highest specificity.</p>
+    </section>
+    <hr>
+    <section id="The_!important_exception" class="main-section">
+      <header>The <code>!important</code> exception</header>
+      <p>When an <code>important</code> rule is used on a style declaration, this declaration overrides any other
+        declarations.
+        Although technically <code>!important</code> has nothing to do with specificity, it interacts directly with it.
+        Using
+        <code>!important,</code> however, is bad practice and should be avoided because it makes debugging more
+        difficult by breaking the natural cascading in your stylesheets. When two conflicting declarations
+        with the <code>!important</code> rule are applied to the same element, the declaration with a greater
+        specificity will
+        be applied.</p>
+      <p>Some rules of thumb:</p>
+      <ul>
+        <li>Always look for a way to use specificity before even considering <code>!important</code>
+        </li>
+        <li>Only use <code>!important</code> on page-specific CSS that overrides foreign CSS (from external
+          libraries, like Bootstrap or normalize.css).</li>
+        <li>Never use <code>!important</code> when you're writing a plugin/mashup.</li>
+        <li>Never use <code>!important</code> on site-wide CSS.</li>
+      </ul>
+      <h3><code>!important</code></h3>
+      <ol>
+        <li>Making better use of CSS cascading properties</li>
+        <li>
+          <p>Using more specific rules. By indicating one or more elements before the element you're selecting the rule
+            becomes more specific and gets higher priority:</p>
+          <textarea readonly="readonly" class="text-area-4">
+<div id="test">
+  <span>Text</span>
+</div>
+          </textarea>
+          <textarea readonly="readonly" class="text-area-4">
+div#test span { color: green; }
+div span { color: blue; }
+span { color: red; }
+          </textarea>
+        </li>
+        <li>As a nonsense special case for (2), duplicate simple selectors to increase specificity when you have nothing
+          more to
+          specify.</li>
+      </ol>
+      <p>You should use it when:</p>
+      <h4>A) Scenario one:</h4>
+      <ol>
+        <li>You have a global CSS file that sets visual aspects of your site globally.</li>
+        <li>You (or others) use inline styles on elements themselves. This is considered very bad practi</li>
+      </ol>
+      <p>In this case, you could set certain styles in your global CSS file as important, thus overriding inline styles set
+      directly on elements.</p>
+      <p>Real world example: Some badly written jQuery plugins which use inline styles.</p>
+      <h4>B) Another scenario</h4>
+      <textarea readonly="readonly" class="text-area-8">
+#someElement p {
+color: blue;
+}
+
+p.awesome {
+color: red;
+}
+      </textarea>
+      <p>How do you make <code>awesome</code> paragraphs always turn red, even ones inside <code>#someElement</code>? Without
+        <code>!important</code>, the first rule will have more specificity and will win over the second rule.</p>
+      <h3><code>!important</code></h3>
+      <p>A) Simply add another CSS rule with <code>!important</code>, and either give the selector a higher specificity
+        (adding a tag, id or class to the selector), or add a CSS rule with the same selector at a later point than the
+        existing one. This works because in a specificity tie, the last rule defined wins.</p>
+      <p>Some examples with a higher specificity:</p>
+      <textarea readonly="readonly" class="text-area-4">
+table td { height: 50px !important; }
+.myTable td { height: 50px !important; }
+#myTable td { height: 50px !important; }
+      </textarea>
+      <p>B) Or add the same selector after the existing one:</p>
+      <textarea readonly="readonly" class="text-area-2">
+td { height: 50px !important; }
+      </textarea>
+      <p>C) Or rewrite the original rule to avoid the use of <code>!important</code> altogether.</p>
+      <h5>For more information, visit:</h5>
+      <ul>
+        <li><a href="https://stackoverflow.com/questions/3706819/what-are-the-implications-of-using-important-in-css">What are the implications of using “!important” in CSS?</a></li>
+        <li><a href="https://stackoverflow.com/questions/9245353/what-does-important-in-css-mean">What does !important mean in CSS?</a>
+        </li>
+        <li><a href="https://stackoverflow.com/questions/5701149/when-to-use-important-property-in-css">When to use the !important property in CSS</a>
+        </li>
+        <li><a href="https://stackoverflow.com/questions/11178673/how-to-override-important">How to override !important?</a>
+        </li>
+        <li><a href="https://stackoverflow.com/questions/2042497/when-to-use-important-to-save-the-day-when-working-with-css">When to use “!important” to save the day (when working with CSS)?</a>
+        </li>
+      </ul>
+    </section>
+    <hr>
+    <section id="The_:not()_exception" class="main-section">
+      <header>The <code>:not()</code> exception</header>
+      <p>The negation pseudo-class <code>:not()</code> is not considered a pseudo-class in the specificity calculation. But selectors placed
+      into the negation pseudo-class count as normal selectors when determining the count of selector types.</p>
+      <p>This chunk of CSS...</p>
+      <textarea readonly="readonly" class="text-area-8">
+div.outer p {
+color: orange;
+}
+div:not(.outer) p {
+color: blueviolet;
+}
+      </textarea>
+<p>...when used with the following HTML...</p>
+      <textarea readonly="readonly" class="text-area-8">
+<div class="outer">
+  <p>This is in the outer div.</p>
+  <div class="inner">
+    <p>This text is in the inner div.</p>
+  </div>
+</div>
+      </textarea>
+      <p>...appears on the screen like this:</p>
+      <article class="preview">
+        <div class="outer">
+          <p>This is in the outer div.</p>
+          <div class="inner">
+            <p>This text is in the inner div.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <hr>
+    <section id="Form-based_specificity" class="main-section">
+      <header>Form-based specificity</header>
+      <p>Specificity is based on the form of a selector. In the following case, the selector <code>*[id="foo"]</code> counts
+        as an attribute selector for the purpose of determining the selector's specificity, even though it selects an ID.</p>
+      <p>The following CSS styles...</p>
+      <textarea readonly="readonly" class="text-area-8">
+*#foo {
+color: green;
+}
+*[id="foo"] {
+color: purple;
+}
+      </textarea>
+      <p>...when used with this markup...</p>
+      <textarea readonly="readonly" class="text-area-2">
+<p id="foo">I am a sample text.</p>
+      </textarea>
+      <p>...end up looking like this:</p>
+      <article class="preview">
+        <p id="foo">I am a sample text.</p>
+      </article>
+      <p>This is because it matches the same element but the ID selector has a higher specificity.</p>
+    </section>
+    <hr>
+    <section id="Tree_proximity_ignorance" class="main-section">
+      <header>Tree proximity ignorance</header>
+      <p>The proximity of an element to other elements that are referenced in a given selector has no impact on specificity. The
+      following style declaration...</p>
+      <textarea readonly="readonly" class="text-area-8">
+article h1 {
+color: green;
+}
+section h1 {
+color: purple;
+}
+      </textarea>
+      <p>...with the following HTML...</p>
+      <textarea readonly="readonly" class="text-area-6">
+<section>  
+  <article>
+    <h1>Here is a title!</h1>
+  </article>
+</section>
+    </textarea>
+    <p>...will render as:</p>
+    <article class="preview">
+      <h1 id="preview-h1">Here is a title!</h1>
+    </article>
+    <p>This is because the two declarations have equal selector type counts, but the <code>section h1</code> selector is declared last.</p>
+    </section>
+    <hr>
+    <section id="Directly_targeted_elements_vs._inherited_styles" class="main-section">
+      <header>Directly targeted elements vs. inherited styles</header>
+      <p>Styles for a directly targeted element will always take precedence over inherited styles, regardless of the specificity
+      of the inherited rule. This CSS...</p>
+      <textarea readonly="readonly" class="text-area-8">
+#parent {
+color: green;
+}
+h1 {
+color: purple;
+}
+      </textarea>
+      <p>...with the following HTML...</p>
+      <textarea readonly="readonly" class="text-area-6">
+<section>    
+  <article id="parent">
+    <h1>Here is a title!</h1>
+  </article>
+</section>
+      </textarea>
+      <p>...will also render as:</p>
+      <article class="preview">
+        <h1 id="preview-h1">Here is a title!</h1>
+      </article>
+      <p>This is because the h1 selector targets the element specifically, but the green selector is only inherited from its parent.</p>
+    </section>
+  </main>
+  <footer>
+    <p>This page has been made by Dylan J. Gerrits <a href="https://github.com/dyrits/" target="_blank"><i
+          class="fab fa-github"></i></a> as a project for <a href="https://www.freecodecamp.org/"
+        target="_blank">freecodecamp.org</a>.</p>
+  </footer>
+  <script src="https://kit.fontawesome.com/7b3b0349cd.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
