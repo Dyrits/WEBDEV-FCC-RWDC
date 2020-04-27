@@ -25,6 +25,6 @@ User Story #2: I should see an element with a corresponding `id="title"`, which 
 **User Story #9:** The `img` element should be centered within its parent element.
 
 ### About this project
-#### CodePen:
+#### CodePen
 You can find this project on CodePen.  
 URL: https://codepen.io/Dyrits/full/bGVRNzP
