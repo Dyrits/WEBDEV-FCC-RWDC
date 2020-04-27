@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+
+:root {
+  --background-image: url("https://images.pexels.com/photos/238118/pexels-photo-238118.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  --light-gray: #BBB;
+  --dark-gray: #555;
+  --linear-background: linear-gradient(10deg, #BBB 0%, #BBB 25%, #555 50%, #BBB 75%, #BBB 100%);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Righteous', cursive;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+}
+
+body, #navbar {
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: initial;
+  background-position: top;
+  background-attachment: fixed;
+}
+
+#navbar>ul {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: inherit;
+  height: inherit;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#navbar>ul a {
+  display: inline-block;
+  color: var(--light-gray);
+  font-family: 'Black Ops One', cursive;
+  font-size: 36px;
+  text-shadow: 2px 2px 8px var(--dark-gray);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#navbar>ul a:hover {
+  transform: scale(1.1);
+  color: var(--dark-gray);
+  text-shadow: 2px 2px 8px var(--light-gray);
+  transition: transform 0.8s;
+}
+
+
+#welcome-section {
+  height: 100vh;
+  padding: 0 30% 0 2.5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: justify;
+  color: var(--dark-gray)
+}
+
+.main-header {
+  color: var(--light-gray);
+  text-shadow: 2px 2px 8px var(--dark-gray);
+  font-family: 'Black Ops One', cursive;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.main-header:hover {
+  color: var(--dark-gray);
+  text-shadow: 2px 2px 8px var(--light-gray);
+}
+
+
+#projects {
+  background-image: var(--linear-background);
+  text-align: center;
+  padding: 40px 0;
+}
+
+#pens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.project-tile {
+  padding: 10px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+  font-family: 'Caveat Brush', cursive;
+  text-decoration: none;
+  color: var(--dark-gray);
+  opacity: 0.8;
+}
+
+.project-tile:hover {
+  transform: scale(1.2);
+  transition: transform 0.8s;
+  animation: zoom 0.8s;
+  opacity: 1;
+}
+
+.project-tile>h3 {
+  width: 80%;
+  margin-left: auto;
+  border-radius: 0 10px 10px 0;
+  background-color: #FFF;
+}
+  
+.project-tile>img{
+  width: 100%;
+  height: auto;
+  border-radius: 0% 0% 0% 10%;
+  box-shadow: 5px 5px 5px 0px var(--dark-gray);
+}
+
+#contacts {
+  height: 100vh;
+  background-color: var(--dark-gray);
+  text-align: center;
+  padding: 40px 0;
+}
+
+#contacts>h2 {
+  margin: 0 auto;
+}
+
+#contact-links {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 95%;
+}
+
+.contact-details {
+  font-size: 28px;
+  text-decoration: none;
+  color: var(--light-gray);
+}
+
+.contact-details:hover {  
+  color: #FFF;
+  transform: scale(1.2);
+  transition: transform 0.8s;
+  text-decoration: underline;
+}
+
+.contact-details .fab:hover, .contact-details .fas:hover {
+  transform: rotate(360deg);
+  transition: transform 2.5s;
+}
+
+#contacts>p {
+  color: var(--light-gray);
+}
+#contacts>p>a {
+  color: var(--light-gray);
+  text-decoration: none;
+}
+
+#contacts>p>a:hover {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #navbar>ul a {font-size: 24px;}
+}
+
+@media only screen and (max-width: 1024px) {
+    #welcome-section {padding: 0 2.5%;}
+}
+
+@keyframes zoom {
+  30% {transform: rotate(10deg);}
+  40% {transform: rotate(0deg);}
+  50% {transform: rotate(5deg);}
+  60% {transform: rotate(0deg);}
+  70% {transform: rotate(2.5deg);}
+  100% {transform: translate(0) rotate(0deg) scale(1.2);}
+}
