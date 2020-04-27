@@ -27,4 +27,4 @@ User Story #2: I should see an element with a corresponding `id="title"`, which 
 ### About this project
 #### CodePen
 You can find this project on CodePen.  
-URL: https://codepen.io/Dyrits/details/JjYdbGZ
+URL: https://codepen.io/Dyrits/full/JjYdbGZ
