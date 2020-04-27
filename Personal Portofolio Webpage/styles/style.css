@@ -189,6 +189,7 @@ body, #navbar {
 
 @media only screen and (max-width: 1024px) {
     #welcome-section {padding: 0 2.5%;}
+    .project-tile {width: 70%;}
 }
 
 @keyframes zoom {
